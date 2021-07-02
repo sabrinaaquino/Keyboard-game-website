@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@500&family=Bebas+Neue&family=Comfortaa:wght@300;600;700&family=Poppins:wght@600;700&family=Roboto:wght@100;400&family=Unica+One&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Goldman&display=swap" rel="stylesheet"> 
+    <title>Type Ninja</title>
+</head>
+
+<body>
+    <script src="js/script.js"></script>
+    <audio id="soundCorrect">
+        <source src="audio/correct.mp3">
+    </audio>
+    <audio id="soundWrong">
+        <source src="audio/wrong.mp3">
+    </audio>
+
+    <div class="container">
+
+        <div class="header">
+            <div class="heading-brand">.TypeNinja</div>
+            <div class="mode">
+                <div class="block">
+                    <div class="choose-mode">CHOOSE MODE:</div>
+                    <input class="button" type="button" value="LETTERS" onclick="return change(this);" />
+                </div>
+                <div class="sound-buttons">
+                    <button class="button-voice" type='button' id="sound-on-off" onclick="toogleSound(this)">SOUND: ON</button>
+                    <button class="button-voice" type='button' id="voice-on-off" onclick="toggleVoice(this)">VOICE: OFF</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper">
+            <div class="scoreDiv">
+                <p class="scoreText">Score: </p>
+                <p id='score' class="scoreText">0</p>
+            </div>
+            <p class="all" id='letter'>Ready?</p>
+            <input type="text" id="textArea" value="Type here..." onkeypress="compare(event)" onfocus=this.value=''>
+            <button class="button-start" type='button' id="btnVoice" onclick="toggleText(this)">START</button>
+        </div>
+         
+    </div>
+</body>
+
+</html>
