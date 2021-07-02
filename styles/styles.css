@@ -94,7 +94,7 @@ body {
     font-size: clamp(15px, 2vw, 40px);
     color: #ffffff;
     width: clamp(60px, 8vw, 200px);
-    height: clamp(20px, 3vw, 60px);
+    height: clamp(24px, 3vw, 60px);
     text-align: center;
     transition-duration: 0.4s;
     text-decoration: none;
