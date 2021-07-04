@@ -21,6 +21,26 @@ body {
 
 }
 
+@media screen and (max-device-width: 700px) {
+    
+    .scoreDiv{
+        display: flex;
+        flex-direction: row;
+        margin-top: 10vh;
+        margin-bottom: 2vh;
+    
+    }
+    
+    .scoreText{
+        font-family: 'Goldman', monospace;
+        font-size: clamp(15px, 1.5vw, 40px);
+        margin-bottom: auto;
+        margin-top: 7vh;
+    }
+    
+}
+
+
 .container {
     margin: 0vh 10vw 0 10vw;
     
@@ -36,7 +56,7 @@ body {
 .heading-brand {
     margin-top: 10vh;
     margin-right: 2vw;
-    font-size: clamp(25px, 2.5vw, 80px);
+    font-size: clamp(22px, 3.5vw, 100px);
     font-family: "Baloo Tammudu 2", monospace;
     color: #333;
     font-weight: 600;
@@ -56,18 +76,19 @@ body {
 
 .block {
     font-family: "Unica One", cursive;
-    font-size: clamp(15px, 1vw, 30px);
+    font-size: clamp(15px, 2vw, 30px);
     display: flex;
     align-items: center;
 
 }
 .button {
+    margin: 0 auto;
     font-family: "Unica One", cursive;
     margin-left: 1vw;
     position: relative;
     background-color: #36c40b;
     border: none;
-    font-size: clamp(15px, 1.5vw, 40px);
+    font-size: clamp(14px, 1.5vw, 40px);
     color: #ffffff;
     width: clamp(60px, 6vw, 200px);
     height: clamp(20px, 2vw, 60px);
@@ -91,10 +112,10 @@ body {
     position: relative;
     background-color: #36c40b;
     border: none;
-    font-size: clamp(15px, 2vw, 40px);
+    font-size: clamp(13px, 2vw, 40px);
     color: #ffffff;
-    width: clamp(60px, 8vw, 200px);
-    height: clamp(23px, 3vw, 60px);
+    width: clamp(75px, 8vw, 200px);
+    height: clamp(20px, 3vw, 60px);
     text-align: center;
     transition-duration: 0.4s;
     text-decoration: none;
@@ -112,7 +133,7 @@ body {
     position: relative;
     margin: 0 auto;
     /* background: aqua; */
-    width: clamp(200px, 100vw, 850px);
+    width: clamp(200px, 130vw, 850px);
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -139,12 +160,13 @@ body {
     cursor: pointer;
     margin-top: 1vw;
     margin-right: 1vw;
+    border-radius: 20px;
 }
 
-.buttons {
+/* .buttons {
     display: flex;
     flex-direction: column;
-}
+} */
 
 .scoreDiv{
     display: flex;
@@ -156,6 +178,7 @@ body {
     font-family: 'Goldman', monospace;
     font-size: clamp(15px, 1.5vw, 40px);
     margin-bottom: auto;
+    margin-top: 0;
 }
 
 .sound-buttons{
@@ -187,7 +210,9 @@ p {
     color: grey;
 }
 
-
+#letter{
+    font-size: clamp(50px, 9vw, 300px);
+}
 /* 
 .ball {
     position: absolute;
