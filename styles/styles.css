@@ -127,6 +127,26 @@ body {
     background: #056d05b2;
     transition: all 0.8s;
 }
+
+#lettersButton{
+    margin: 0 auto;
+    font-family: "Unica One", cursive;
+    margin-left: 1vw;
+    position: relative;
+    background-color: #36c40b;
+    border: none;
+    font-size: clamp(14px, 1.5vw, 40px);
+    color: #ffffff;
+    width: clamp(60px, 6vw, 200px);
+    height: clamp(20px, 2vw, 60px);
+    text-align: center;
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+    margin-left: 1vw;
+}
+
 .wrapper {
     /* background: aqua; */
     display: block;
