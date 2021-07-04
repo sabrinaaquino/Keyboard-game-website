@@ -25,17 +25,19 @@ function change(el) {
     if (el.value === "LETTERS") {
         el.value = "WORDS";
         mode = el.value;
+        toggleText();
     }
     else {
         el.value = "LETTERS";
         mode = el.value;
+        toggleText();
     }
 }
 
 function say(m) {
     var msg = new SpeechSynthesisUtterance();
     var voices = window.speechSynthesis.getVoices();
-    msg.voice = voices[22];
+    msg.voice = voices[2];
     msg.voiceURI = "native";
     msg.volume = 1;
     msg.rate = 1;
@@ -69,35 +71,43 @@ function toogleSound(){
     }
 }
 
-function toggleText() {
-    if (document.getElementById("btnVoice").innerHTML === "START") {
-        document.getElementById("btnVoice").innerHTML = "RESTART";
-    }
+function resetScore(){
+    lettersScore=0;
+    wordsScore=0;
+}
 
-    i = 0;
-    document.getElementById("textArea").focus();
-    if (mode == "LETTERS") {
-        document.getElementById("letter").innerHTML = keys[Math.floor(Math.random() * keys.length)];
-        char = document.getElementById("letter").innerHTML;
-        if (voiceOFF === "VOICE: ON") {
-            say(char);
+function toggleText() {
+        if (document.getElementById("btnVoice").innerHTML === "START") {
+            document.getElementById("btnVoice").innerHTML = "RESTART";
         }
-        let text = document.getElementById("letter");
-        if (text.style.display === "none") {
-            text.style.display = "block";
+        if(lettersScore >=0 && wordsScore >=0){
+            i = 0;
+            document.getElementById("textArea").focus();
+            if (mode == "LETTERS") {
+                document.getElementById("score").innerHTML = lettersScore;
+                document.getElementById("letter").innerHTML = keys[Math.floor(Math.random() * keys.length)];
+                char = document.getElementById("letter").innerHTML;
+                if (voiceOFF === "VOICE: ON") {
+                    say(char);
+                }
+                let text = document.getElementById("letter");
+                if (text.style.display === "none") {
+                    text.style.display = "block";
+                }
+            }
+            else if (mode == "WORDS") {
+                document.getElementById("score").innerHTML = wordsScore;
+                document.getElementById("letter").innerHTML = words[Math.floor(Math.random() * words.length)];
+                char = document.getElementById("letter").innerHTML;
+                text = document.getElementById("letter");
+                if (voiceOFF === "VOICE: ON") {
+                    say(char);
+                }
+                if (text.style.display === "none") {
+                    text.style.display = "block";
+                }
+            }
         }
-    }
-    else if (mode == "WORDS") {
-        document.getElementById("letter").innerHTML = words[Math.floor(Math.random() * words.length)];
-        char = document.getElementById("letter").innerHTML;
-        text = document.getElementById("letter");
-        if (voiceOFF === "VOICE: ON") {
-            say(char);
-        }
-        if (text.style.display === "none") {
-            text.style.display = "block";
-        }
-    }
 }
 
 function compare(e) {
@@ -129,11 +139,17 @@ function compare(e) {
             }
         }
         else{
-            --lettersScore;
+            if(lettersScore <= 0){
+                document.getElementById("letter").innerHTML = 'uh-oh'.fontcolor("red");
+            }
+            else{
+                --lettersScore;
+            }
             document.getElementById("score").innerHTML = lettersScore;
             if (soundOFF === "SOUND: ON") {
                 document.getElementById("soundWrong").play();
             }
+            
         }
     }
     else if (mode == "WORDS") {
@@ -166,7 +182,12 @@ function compare(e) {
             ++i;
         }
         else{
-            --wordsScore;
+            if(wordsScore <= 0){
+                document.getElementById("letter").innerHTML = 'uh-oh'.fontcolor("red");
+            }
+            else{
+                --wordsScore;
+            }
             document.getElementById("score").innerHTML = wordsScore;
             if (soundOFF === "SOUND: ON") {
                 document.getElementById("soundWrong").play();
